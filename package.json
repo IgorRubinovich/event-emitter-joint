@@ -1,0 +1,25 @@
+{
+  "name": "event-emitter-joint",
+  "version": "0.9.0",
+  "description": "control and listen to any number of underlying event emitters (\"broadcasters\") via a central joint",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/IgorRubinovich/event-emitter-joint.git"
+  },
+  "keywords": [
+    "events",
+    "eventemitter",
+    "pipe",
+    "stream"
+  ],
+  "author": "Igor Rubinovich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IgorRubinovich/event-emitter-joint/issues"
+  },
+  "homepage": "https://github.com/IgorRubinovich/event-emitter-joint#readme"
+}
