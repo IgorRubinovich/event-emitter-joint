@@ -27,6 +27,22 @@ Extra methods:
 - removeBroadcasters([<EventEmitter>], <bool> keepListeners)
 
 ## Usage
+	npm install event-emitter-joint
+
+Then
+
+	const 
+		EventEmitterJoint = require('event-emitter-joint'),
+		EventEmitter = require('events');
+
+	const
+		a = new EventEmitter(),
+		b = new EventEmitter(),
+		c = new EventEmitter(),
+		x = new EventEmitterJoint([a,b]),
+		listener = (txt) => console.log("listener 1: " + txt),
+		listener2 = (txt) => console.log("listener 2: " + txt);
+
     x.on('test', listener);
     
     a.emit('test', 'this is emitted from a and delivered via x')
