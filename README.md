@@ -28,7 +28,7 @@ Extra methods:
 - removeBroadcasters([EventEmitter ee], bool keepListeners)
 
 ## Usage
-	npm install event-emitter-joint
+	npm install --save event-emitter-joint
 
 Then
 
@@ -68,7 +68,7 @@ You'll find a chaining example in `test` directory.
 - Add custom base class to support usage in browsers
 
 ## Contributing
-Open an issue or make a pull request.
+Open an issue or make a pull request. 
 
 ## License
 MIT
