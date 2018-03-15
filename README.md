@@ -18,10 +18,10 @@ You may provide the constructor with a broadcaster or an array of broadcasters.
 
 Extra methods:
 
-- addBroadcaster(<EventEmitter>)
-- addBroadcasters([<EventEmitter>])
-- removeBroadcaster([<EventEmitter>], <bool> keepListeners) - when removing a broadcaster, set keepListeners to true if you 
-- removeBroadcasters([<EventEmitter>], <bool> keepListeners)
+- addBroadcaster(EventEmitter ee)
+- addBroadcasters([EventEmitter ee])
+- removeBroadcaster(EventEmitter ee, bool keepListeners) - when removing a broadcaster, set keepListeners to true if you 
+- removeBroadcasters([EventEmitter ee], bool keepListeners)
 
 ## Todo:
 - Automate tests
