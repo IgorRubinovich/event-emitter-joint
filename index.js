@@ -1,7 +1,7 @@
 /*
-    ## EventEmitterJoint
+	## EventEmitterJoint
 
-    See README.md
+	See README.md
 */
 
 const EventEmitter = require('events');
@@ -12,60 +12,60 @@ const not = (f) => (...args) => !f(...args);
 class EventEmitterJoint extends EventEmitter
 {
 	constructor(broadcasters) {
-        super();
-        
-        if(broadcasters && !(broadcasters instanceof Array)) broadcasters = [broadcasters];
+		super();
 
-        this._broadcasters = broadcasters || [];
+		if(broadcasters && !(broadcasters instanceof Array)) broadcasters = [broadcasters];
+
+		this._broadcasters = broadcasters || [];
 
 		this.on('newListener', this._addListenerToBroadcasters.bind(this));
-        this.on('removeListener', this._removeListenerFromBroadcasters.bind(this));
+		this.on('removeListener', this._removeListenerFromBroadcasters.bind(this));
 	}
 
-    addBroadcasters(b) {
-        (typeof b ? b : [b]).forEach(b => this.addBroadcaster(b))
-    }
+	addBroadcasters(b) {
+		(typeof b ? b : [b]).forEach(b => this.addBroadcaster(b))
+	}
 
-    addBroadcaster(b) {
-        this._broadcasters.push(b);
-        this._forAllEventsAndListeners(b.on.bind(b));
-    }
+	addBroadcaster(b) {
+		this._broadcasters.push(b);
+		this._forAllEventsAndListeners(b.on.bind(b));
+	}
 
-    removeBroadcasters(b, keepListeners) {
-        (typeof b ? b : [b]).forEach(b => this.removeBroadcaster(b, keepListeners))
-    }
+	removeBroadcasters(b, keepListeners) {
+		(typeof b ? b : [b]).forEach(b => this.removeBroadcaster(b, keepListeners))
+	}
 
-    removeBroadcaster(b, keepListeners = false) {
-        this._broadcasters = this._broadcasters.filter(_b => _b != b);
-        if(!keepListeners)
-            this._forAllEventsAndListeners((e,l) => b.removeListener(e, l));        
-    }
+	removeBroadcaster(b, keepListeners = false) {
+		this._broadcasters = this._broadcasters.filter(_b => _b != b);
+		if(!keepListeners)
+			this._forAllEventsAndListeners((e,l) => b.removeListener(e, l));		
+	}
 
 	_addListenerToBroadcasters(ev, listener) {
-        if(SPECIAL_EVENT(ev))
-            return;
+		if(SPECIAL_EVENT(ev))
+			return;
 
-        this._forAllBroadcasters(b => b.on(ev, listener));
-    }
+		this._forAllBroadcasters(b => b.on(ev, listener));
+	}
 
 	_removeListenerFromBroadcasters(ev, listener) {
-        if(SPECIAL_EVENT(ev))
-            return;
+		if(SPECIAL_EVENT(ev))
+			return;
 
-        this._forAllBroadcasters(b => b.removeListener(ev, listener));
-    }
+		this._forAllBroadcasters(b => b.removeListener(ev, listener));
+	}
 
-    _forAllBroadcasters(f) {
-        return this._broadcasters.map(f);
-    }
+	_forAllBroadcasters(f) {
+		return this._broadcasters.map(f);
+	}
 
-    _forAllEventsAndListeners(f) {
-       return this.eventNames()
-            .filter(not(SPECIAL_EVENT))
-            .map(ev =>
-                this.listeners(ev)
-                    .forEach(l => f(ev, l)));
-    }
+	_forAllEventsAndListeners(f) {
+	   return this.eventNames()
+			.filter(not(SPECIAL_EVENT))
+			.map(ev =>
+				this.listeners(ev)
+					.forEach(l => f(ev, l)));
+	}
 }
 
 
