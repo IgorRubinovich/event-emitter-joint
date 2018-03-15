@@ -9,12 +9,14 @@
 why anyone would want to do this.   
 
 #### How it works
-Internally the joint is listening for newListener/removeListener events and adds/removes them to/from broadcasters.
+- Listens for its own newListener/removeListener events and adds/removes them to/from broadcasters (ignoring newListener/removeListener themselves).
+- When a new broadcaster is added via addBroadcaster(s), it will get all of already existing listeners. 
+- Similarly when a broadcaster is removed via removeBroadcaster(s) all of the listeners are removed from it, unless keepListeners is used.
 
 ## API
 
 The interface is inherited from native EventEmitter.
-You may provide the constructor with a broadcaster or an array of broadcasters.
+You may provide the constructor with a broadcaster or an array thereof.
 
 Extra methods:
 
