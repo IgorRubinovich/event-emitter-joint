@@ -1,8 +1,9 @@
 ## EventEmitterJoint
 
 - control any number of underlying event emitters ("broadcasters") via a central joint
-- cascaade events over chains of event emitters
+- cascade events over chains of event emitters
 - dynamically add/remove broadcasters just like you would do with listeners
+- no overhead during events emission
 
 ### How it works
 Internally the joint is listening for newListener/removeListener events and adds/removes the listener that caused them to/from broadcasters.
@@ -10,7 +11,7 @@ Internally the joint is listening for newListener/removeListener events and adds
 ### Note:
 - It's not the events that propagate up the chain, rather the addition and removal of listeners propagates down. When a listener is added
 to a joint, it's propagated down the joints chain to the base joint or non-joint event emitter. When an event is emitted from the base
-event emitter the listener is triggered directly, thust there's no overhead implied by the chain.
+event emitter the listener is triggered directly, thus there's no overhead implied by the chain.
 - There's currently no way to add a listener to the joint without adding the same listener to the underlying broadcasters, nor I know
 why anyone would want to do this.   
 
