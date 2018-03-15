@@ -1,8 +1,8 @@
 ## EventEmitterJoint
-
 - control any number of underlying event emitters ("broadcasters") via a central joint
 - cascade events over chains of event emitters
 - dynamically add/remove broadcasters just like you would do with listeners
+- extends the standard EventEmitter retaining its interface
 - no overhead during events emission
 
 ### How it works
@@ -62,6 +62,10 @@ Then
     b.emit('test', 'this is emitted from b after reconnecting it as a broadcaster')
 
 You'll find a chaining example in `test` directory.
+
+## Todo
+- Automate tests
+- Add custom base class to support usage in browsers
 
 ## Contributing
 Open an issue or make a pull request.
