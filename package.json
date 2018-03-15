@@ -1,6 +1,6 @@
 {
   "name": "event-emitter-joint",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "control and listen to any number of underlying event emitters (\"broadcasters\") via a central joint",
   "main": "index.js",
   "scripts": {
