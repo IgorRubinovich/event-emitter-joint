@@ -20,7 +20,7 @@ Extra methods:
 
 - addBroadcaster(EventEmitter ee)
 - addBroadcasters([EventEmitter ee])
-- removeBroadcaster(EventEmitter ee, bool keepListeners) - when removing a broadcaster, set keepListeners to true if you 
+- removeBroadcaster(EventEmitter ee, bool keepListeners) - when removing a broadcaster, set keepListeners to true if you want the listeners to stay with the broadcaster. Doesn't seem to contribute to consistency but might find its uses.
 - removeBroadcasters([EventEmitter ee], bool keepListeners)
 
 ## Todo:
