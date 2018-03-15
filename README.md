@@ -4,11 +4,12 @@
 - cascade events over chains of joints
 - dynamically add/remove broadcasters just like you would do with listeners
 
-### Note:
+#### Note:
 - There's currently no way to add a listener to the joint without adding the same listener to the underlying broadcasters, nor I know
 why anyone would want to do this.   
 
-How it works: Internally the joint is listening for newListener/removeListener events and adds/removes them to/from broadcasters.
+#### How it works
+Internally the joint is listening for newListener/removeListener events and adds/removes them to/from broadcasters.
 
 ## API
 
