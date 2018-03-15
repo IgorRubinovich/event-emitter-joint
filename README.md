@@ -4,8 +4,8 @@
 - cascaade events over chains of event emitters
 - dynamically add/remove broadcasters just like you would do with listeners
 
-###How it works
-Internally the joint is listening for newListener/removeListener events and adds/removes them to/from broadcasters.
+### How it works
+Internally the joint is listening for newListener/removeListener events and adds/removes the listener that caused them to/from broadcasters.
 
 ### Note:
 - It's not the events that propagate up the chain, rather the addition and removal of listeners propagates down. When a listener is added
@@ -16,7 +16,7 @@ why anyone would want to do this.
 
 ## API
 
-The interface is inherited from native EventEmitter.
+The interface is inherited from native [EventEmitter](https://nodejs.org/api/events.html).
 You may provide the constructor with a broadcaster or an array of broadcasters.
 
 Extra methods:
@@ -48,3 +48,6 @@ You'll find a chaining example in `test` directory.
 
 ## Contributing
 Open an issue or make a pull request.
+
+## License
+MIT

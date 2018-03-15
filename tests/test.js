@@ -13,7 +13,9 @@ const
 // basics
 
 console.log();
-console.log('Basic event joints:')
+console.log('Basic event joint:')
+console.log('x <- [a, b, c]')
+console.log()
 
 x.on('test', listener);
 
@@ -54,6 +56,9 @@ a.emit('test', "this is going to x again after adding 'a' broadcaster")
 
 console.log();
 console.log('Chaining event joints:')
+console.log('x <- [a,b,c], z <- y <- x, w <- y <- z, t <- [w, z]')
+console.log()
+
 const y = new EventEmitterJoint(x)
 const z = new EventEmitterJoint(y)
 const w = new EventEmitterJoint(y)
