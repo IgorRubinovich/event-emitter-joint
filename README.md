@@ -18,15 +18,15 @@ why anyone would want to do this.
 ## API
 
 The interface is inherited from native [EventEmitter](https://nodejs.org/api/events.html).
-You may provide the constructor with a broadcaster or an array of broadcasters.
 
 Extra methods:
 
+- constructor(broadcasters) - provide the constructor with a broadcaster or an array thereof
 - addBroadcaster(EventEmitter ee)
 - addBroadcasters([EventEmitter ee])
 - removeBroadcaster(EventEmitter ee, bool keepListeners)) - when removing a broadcaster, set keepListeners to true if you want to keep listening to the broadcaster after removal. Does not sound safe or consistent but could find its purpose.
 - removeBroadcasters([EventEmitter ee], bool keepListeners)
-- getBroadcasters 
+- getBroadcasters() - returns a copy of the list of broadcasters.
 
 Events
 
