@@ -78,12 +78,14 @@ Open an issue or make a pull request.
 
 ## Changelog:
 Mar 29, 2018 v0.9.3: 
-	- emitting newBroadcaster/removeBroadcaster events
-	- .getBroadcasters() returns a reference to a copy of the internal _broadcasters property
-	- addBroadcaster(s) now makes sure the broadcaster is not added more than once using plain object equality
+
+- emitting newBroadcaster/removeBroadcaster events
+- .getBroadcasters() returns a reference to a copy of the internal _broadcasters property
+- addBroadcaster(s) now makes sure the broadcaster is not added more than once using plain object equality
 
 Mar 15, 2018 v0.9.1:
-	- All basic features implemented
+
+- All basic features implemented
 
 ## License
 MIT
