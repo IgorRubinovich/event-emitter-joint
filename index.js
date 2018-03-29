@@ -27,8 +27,13 @@ class EventEmitterJoint extends EventEmitter
 	}
 
 	addBroadcaster(b) {
+		if(this._broadcasters.filter(_b => b == _b).length)
+			return; // add only once
+
 		this._broadcasters.push(b);
-		this._forAllEventsAndListeners(b.on.bind(b));
+		this._forAllEventsAndListeners(b.on.bind(b))
+
+		this.emit("newBroadcaster", b);
 	}
 
 	removeBroadcasters(b, keepListeners) {
@@ -39,6 +44,8 @@ class EventEmitterJoint extends EventEmitter
 		this._broadcasters = this._broadcasters.filter(_b => _b != b);
 		if(!keepListeners)
 			this._forAllEventsAndListeners((e,l) => b.removeListener(e, l));		
+
+		this.emit("removeBroadcaster", b);
 	}
 
 	_addListenerToBroadcasters(ev, listener) {
@@ -61,10 +68,14 @@ class EventEmitterJoint extends EventEmitter
 
 	_forAllEventsAndListeners(f) {
 	   return this.eventNames()
-			.filter(not(SPECIAL_EVENT))
-			.map(ev =>
-				this.listeners(ev)
-					.forEach(l => f(ev, l)));
+				.filter(not(SPECIAL_EVENT))
+				.map(ev =>
+					this.listeners(ev)
+						.forEach(l => f(ev, l)));
+	}
+
+	getBroadcasters () {
+		return [...this._broadcasters];
 	}
 }
 

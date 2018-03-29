@@ -26,6 +26,12 @@ Extra methods:
 - addBroadcasters([EventEmitter ee])
 - removeBroadcaster(EventEmitter ee, bool keepListeners)) - when removing a broadcaster, set keepListeners to true if you want to keep listening to the broadcaster after removal. Does not sound safe or consistent but could find its purpose.
 - removeBroadcasters([EventEmitter ee], bool keepListeners)
+- getBroadcasters 
+
+Events
+
+- newBroadcaster - like newListener, fired when broadcaster is added, the listener receives the broadcaster as first argument
+- removeBroadcaster - like removeListener, see above
 
 ## Usage
 	npm install --save event-emitter-joint
@@ -69,6 +75,15 @@ You'll find a chaining example in `test` directory.
 
 ## Contributing
 Open an issue or make a pull request. 
+
+## Changelog:
+Mar 29, 2018 v0.9.3: 
+	- emitting newBroadcaster/removeBroadcaster events
+	- .getBroadcasters() returns a reference to a copy of the internal _broadcasters property
+	- addBroadcaster(s) now makes sure the broadcaster is not added more than once using plain object equality
+
+Mar 15, 2018 v0.9.1:
+	- All basic features implemented
 
 ## License
 MIT
